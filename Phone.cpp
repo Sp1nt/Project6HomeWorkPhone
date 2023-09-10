@@ -124,12 +124,12 @@ int PhoneBook::NewAbonent(PhoneBook*& array, int oldSize) {
 
     return newSize;
 }
-int PhoneBook::DeleteAbonent(PhoneBook*& array, int oldSize, int numberDelate) {
+int PhoneBook::DeleteAbonent(PhoneBook*& array, int oldSize, int amountDelete) {
     int newSize = oldSize - 1;
     PhoneBook* newArray = new PhoneBook[newSize];
 
     for (int i = 0, j = 0; i < oldSize; i++) {
-        if (i != numberDelate) {
+        if (i != amountDelete) {
             newArray[j] = array[i];
             j++;
         }
@@ -194,7 +194,7 @@ void PhoneBook::SetFistName(const char* fn) {
 }
 void PhoneBook::SetLastName(const char* ln) {
     if (lastName != nullptr) {
-        cout << "Delate lastName -> " << this->lastName << endl;
+        cout << "Delete lastName -> " << this->lastName << endl;
     }
 
     lastName = new char[strlen(ln) + 1];
@@ -202,7 +202,7 @@ void PhoneBook::SetLastName(const char* ln) {
 }
 void PhoneBook::SetPatronymic(const char* sn) {
     if (Patronymic != nullptr) {
-        cout << "Delate Patronymic -> " << this->Patronymic << endl;
+        cout << "Delete Patronymic -> " << this->Patronymic << endl;
     }
 
     Patronymic = new char[strlen(sn) + 1];
@@ -210,7 +210,7 @@ void PhoneBook::SetPatronymic(const char* sn) {
 }
 void PhoneBook::SetHomePhone(const char* hp) {
     if (homePhone != nullptr) {
-        cout << "Delate homePhone -> " << this->homePhone << endl;
+        cout << "Delete homePhone -> " << this->homePhone << endl;
     }
 
     homePhone = new char[strlen(hp) + 1];
@@ -218,7 +218,7 @@ void PhoneBook::SetHomePhone(const char* hp) {
 }
 void PhoneBook::SetWorkPhone(const char* wp) {
     if (workPhone != nullptr) {
-        cout << "Delate workPhone -> " << this->workPhone << endl;
+        cout << "Delete workPhone -> " << this->workPhone << endl;
     }
 
     workPhone = new char[strlen(wp) + 1];
