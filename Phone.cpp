@@ -113,7 +113,7 @@ void PhoneBook::Print() {
     cout << "HomePhone.: " << homePhone << endl;
     cout << "workPhone: " << workPhone << endl;
 }
-int PhoneBook::ResizeArray(PhoneBook*& array, int oldSize) {
+int PhoneBook::NewAbonent(PhoneBook*& array, int oldSize) {
     int newSize = oldSize + 1;
     PhoneBook* newArray = new PhoneBook[newSize];
 
@@ -124,7 +124,7 @@ int PhoneBook::ResizeArray(PhoneBook*& array, int oldSize) {
 
     return newSize;
 }
-int PhoneBook::DelateSubscriber(PhoneBook*& array, int oldSize, int numberDelate) {
+int PhoneBook::DeleteAbonent(PhoneBook*& array, int oldSize, int numberDelate) {
     int newSize = oldSize - 1;
     PhoneBook* newArray = new PhoneBook[newSize];
 

@@ -14,8 +14,8 @@ public:
 
     void Input();
     void Print();
-    int ResizeArray(PhoneBook*&, int);
-    int DelateSubscriber(PhoneBook*&, int, int);
+    int NewAbonent(PhoneBook*&, int);
+    int DeleteAbonent(PhoneBook*&, int, int);
     int SearchByFullname(PhoneBook* array, int size, const char* fn, const char* ln, const char* sn);
 
     void saveDataToFile(PhoneBook*, int);

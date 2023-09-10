@@ -5,8 +5,6 @@
 using namespace std;
 
 int main() {
-    setlocale(0, "");
-    system("chcp 1251");
 
     char temp[100];
     char choice = 0;
@@ -27,7 +25,7 @@ int main() {
             cout << "1. Add abonent (Enter the number of abonent first)" << endl;
         }
         else {
-            cout << "Μενώ: " << endl;
+            cout << "Menu: " << endl;
             cout << "1. Add abonents" << endl;
             cout << "2. add abonent" << endl;
             cout << "3. Search for a subscriber by full name" << endl;
@@ -64,7 +62,7 @@ int main() {
 
                 break;
             case '2':
-                amount = subscribers->ResizeArray(subscribers, amount);
+                amount = subscribers->NewAbonent(subscribers, amount);
                 for (int i = amount - 1; i < amount; i++) {
                     subscribers[i].Input();
                     cout << endl;
@@ -162,7 +160,7 @@ int main() {
                     }
                     else
                     {
-                        amount = subscribers->DelateSubscriber(subscribers, amount, amountDelete);
+                        amount = subscribers->DeleteAbonent(subscribers, amount, amountDelete);
                         cout << "The abonents has been deleted!" << endl << endl;
                     }
                 }
