@@ -17,7 +17,7 @@ int main() {
 
     char* firstName;
     char* lastName;
-    char* surName;
+    char* Patronymic;
 
     PhoneBook* subscribers = nullptr;
 
@@ -35,7 +35,7 @@ int main() {
             cout << "5. Delete abonent" << endl;
             cout << "6. Save abonents to file" << endl;
             cout << "7. Load abonents from file" << endl;
-            cout << "6. Выход" << endl;
+            cout << "8. Exit" << endl;
         }
         cout << "Choose: ";
         cin >> choice;
@@ -48,7 +48,7 @@ int main() {
         }
 
 
-        if (isdigit(choice) && choice >= '1' && choice <= '7') {
+        if (isdigit(choice) && choice >= '1' && choice <= '8') {
             switch (choice) {
             case '1':
                 cout << "Enter the number of abonents: ";
@@ -83,24 +83,24 @@ int main() {
                         break;
                     }
                     else if (subChoice == 'S' || subChoice == 's') {
-                        cout << "Поиск по ФИО: " << endl;
-                        cout << "Введите фамилию: ";
+                        cout << "Search by fullname: " << endl;
+                        cout << "input last name: ";
                         cin >> temp;
                         lastName = new char[strlen(temp) + 1];
                         strcpy_s(lastName, strlen(temp) + 1, temp);
 
-                        cout << "Введите имя: ";
+                        cout << "input name: ";
                         cin >> temp;
                         firstName = new char[strlen(temp) + 1];
                         strcpy_s(firstName, strlen(temp) + 1, temp);
 
-                        cout << "Введите отчество: ";
+                        cout << "input Patronymic: ";
                         cin >> temp;
-                        surName = new char[strlen(temp) + 1];
-                        strcpy_s(surName, strlen(temp) + 1, temp);
+                        Patronymic = new char[strlen(temp) + 1];
+                        strcpy_s(Patronymic, strlen(temp) + 1, temp);
 
-                        if (foundSubscriber == subscribers->SearchByFullname(subscribers, amount, firstName, lastName, surName)) {
-                            cout << "Subscriber found:" << endl;
+                        if (foundSubscriber == subscribers->SearchByFullname(subscribers, amount, firstName, lastName, Patronymic)) {
+                            cout << "Subscriber found:" << endl << endl;
                             subscribers[foundSubscriber].Print();
                         }
                         else {
@@ -126,7 +126,7 @@ int main() {
                 }
                 else if (subChoice == 'S' || subChoice == 's') {
                     if (amount == 0) {
-                        cout << "Нет абонентов для вывода!" << endl << endl;
+                        cout << "No abonents for print!" << endl << endl;
                     }
                     else {
                         for (int i = 0; i < amount; i++) {
@@ -158,12 +158,12 @@ int main() {
                     cin >> amountDelete;
                     if (amountDelete > amount || amountDelete <= -1)
                     {
-                        cout << "Вы ввели не допустимый диапозон!" << endl << endl;
+                        cout << "You entered an invalid range!" << endl << endl;
                     }
                     else
                     {
                         amount = subscribers->DelateSubscriber(subscribers, amount, amountDelete);
-                        cout << "Абонент удалён!" << endl << endl;
+                        cout << "The abonents has been deleted!" << endl << endl;
                     }
                 }
                 else {
@@ -171,14 +171,14 @@ int main() {
                 }
             }
             break;
-            case '7':
+            case '6':
                 subscribers->saveDataToFile(subscribers, amount);
 
                 break;
-            case '8':
+            case '7':
                 subscribers->readFile();
                 break;
-            case '9':
+            case '8':
 
                 cout << "Exit from the program." << endl;
                 return 0;

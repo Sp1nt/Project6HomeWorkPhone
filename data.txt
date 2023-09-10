@@ -1,1 +1,18 @@
-#pragma once
+Name: f
+lastName: g
+Patronymic: h
+HomePhone: 4
+WorkPhone: 3
+
+Name: e
+lastName: r
+Patronymic: t
+HomePhone: 5
+WorkPhone: 4
+
+Name: y
+lastName: t
+Patronymic: r
+HomePhone: 4
+WorkPhone: 6
+

@@ -2,7 +2,7 @@
 class PhoneBook {
     char* firstName;
     char* lastName;
-    char* surName;
+    char* Patronymic;
 
     char* homePhone;
     char* workPhone;
@@ -25,14 +25,14 @@ public:
     void printEmployeeList(PhoneBook*&, int);
     char* GetFistName();
     char* GetLastName();
-    char* GetSurName();
+    char* GetPatronymic();
 
     char* GetHomePhone();
     char* GetWorkPhone();
 
     void SetFistName(const char*);
     void SetLastName(const char*);
-    void SetSurName(const char*);
+    void SetPatronymic(const char*);
 
     void SetHomePhone(const char*);
     void SetWorkPhone(const char*);

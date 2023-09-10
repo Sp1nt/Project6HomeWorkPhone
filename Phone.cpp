@@ -9,7 +9,7 @@ using namespace std;
 PhoneBook::PhoneBook() {
     firstName = nullptr;
     lastName = nullptr;
-    surName = nullptr;
+    Patronymic = nullptr;
 
     homePhone = nullptr;
     workPhone = nullptr;
@@ -22,8 +22,8 @@ PhoneBook::PhoneBook(const char* fn, const char* ln, const char* sn, const char*
     lastName = new char[strlen(ln) + 1];
     strcpy_s(lastName, strlen(ln) + 1, ln);
 
-    surName = new char[strlen(sn) + 1];
-    strcpy_s(surName, strlen(sn) + 1, sn);
+    Patronymic = new char[strlen(sn) + 1];
+    strcpy_s(Patronymic, strlen(sn) + 1, sn);
 
     homePhone = new char[strlen(hp) + 1];
     strcpy_s(homePhone, strlen(hp) + 1, hp);
@@ -32,11 +32,10 @@ PhoneBook::PhoneBook(const char* fn, const char* ln, const char* sn, const char*
     strcpy_s(workPhone, strlen(wp) + 1, wp);
 }
 PhoneBook::~PhoneBook() {
-    cout << "Destructor\n";
 
     delete[] lastName;
     delete[] firstName;
-    delete[] surName;
+    delete[] Patronymic;
 
     delete[] homePhone;
     delete[] workPhone;
@@ -70,16 +69,16 @@ void PhoneBook::Input() {
     strcpy_s(lastName, strlen(buff) + 1, buff);
 
 
-    cout << "Surname: ";
+    cout << "Patronymic: ";
     cin >> buff;
 
-    if (surName != nullptr) {
-        cout << "Delete surName -> " << surName << endl << endl;
-        delete[] surName;
+    if (Patronymic != nullptr) {
+        cout << "Delete Patronymic -> " << Patronymic << endl << endl;
+        delete[] Patronymic;
     }
 
-    surName = new char[strlen(buff) + 1];
-    strcpy_s(surName, strlen(buff) + 1, buff);
+    Patronymic = new char[strlen(buff) + 1];
+    strcpy_s(Patronymic, strlen(buff) + 1, buff);
 
 
 
@@ -109,7 +108,7 @@ void PhoneBook::Input() {
 void PhoneBook::Print() {
     cout << "LastName: " << lastName << endl;
     cout << "name: " << firstName << endl;
-    cout << "Surname: " << surName << endl;
+    cout << "Patronymic: " << Patronymic << endl;
 
     cout << "HomePhone.: " << homePhone << endl;
     cout << "workPhone: " << workPhone << endl;
@@ -142,16 +141,16 @@ int PhoneBook::DelateSubscriber(PhoneBook*& array, int oldSize, int numberDelate
     return newSize;
 }
 int PhoneBook::SearchByFullname(PhoneBook* array, int size, const char* fn, const char* ln, const char* sn) {
-    cout << "Input FullName: " << endl;
+    cout << "Input FullName: " << endl<< endl;
     cout << "lastname: " << ln << endl;
     cout << "name: " << fn << endl;
-    cout << "surname: " << sn << endl;
+    cout << "Patronymic: " << sn << endl;
 
     for (int i = 0; i < size; i++) {
 
         if (strcmp(array[i].lastName, ln) == 0 &&
             strcmp(array[i].firstName, fn) == 0 &&
-            strcmp(array[i].surName, sn) == 0) {
+            strcmp(array[i].Patronymic, sn) == 0) {
             return i;
         }
     }
@@ -174,8 +173,8 @@ char* PhoneBook::GetFistName() {
 char* PhoneBook::GetLastName() {
     return this->lastName;
 }
-char* PhoneBook::GetSurName() {
-    return this->surName;
+char* PhoneBook::GetPatronymic() {
+    return this->Patronymic;
 }
 char* PhoneBook::GetHomePhone() {
     return this->homePhone;
@@ -201,13 +200,13 @@ void PhoneBook::SetLastName(const char* ln) {
     lastName = new char[strlen(ln) + 1];
     strcpy_s(lastName, strlen(ln) + 1, ln);
 }
-void PhoneBook::SetSurName(const char* sn) {
-    if (surName != nullptr) {
-        cout << "Delate surName -> " << this->surName << endl;
+void PhoneBook::SetPatronymic(const char* sn) {
+    if (Patronymic != nullptr) {
+        cout << "Delate Patronymic -> " << this->Patronymic << endl;
     }
 
-    surName = new char[strlen(sn) + 1];
-    strcpy_s(surName, strlen(sn) + 1, sn);
+    Patronymic = new char[strlen(sn) + 1];
+    strcpy_s(Patronymic, strlen(sn) + 1, sn);
 }
 void PhoneBook::SetHomePhone(const char* hp) {
     if (homePhone != nullptr) {
@@ -237,7 +236,7 @@ void PhoneBook::saveDataToFile(PhoneBook* array, int size) {
     for (int i = 0; i < size; i++) {
         outFile << "Name: " << array[i].firstName << endl;
         outFile << "lastName: " << array[i].lastName << endl;
-        outFile << "SurName: " << array[i].surName << endl;
+        outFile << "Patronymic: " << array[i].Patronymic << endl;
         outFile << "HomePhone: " << array[i].homePhone << endl;
         outFile << "WorkPhone: " << array[i].workPhone << endl;
         outFile << endl;
