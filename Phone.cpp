@@ -141,6 +141,10 @@ int PhoneBook::DeleteAbonent(PhoneBook*& array, int oldSize, int amountDelete) {
     return newSize;
 }
 int PhoneBook::SearchByFullname(PhoneBook* array, int size, const char* fn, const char* ln, const char* sn) {
+    if (!array) {
+        cout << "NULL" << endl;
+        return -2;
+    }
     cout << "Input FullName: " << endl<< endl;
     cout << "lastname: " << ln << endl;
     cout << "name: " << fn << endl;
@@ -226,6 +230,10 @@ void PhoneBook::SetWorkPhone(const char* wp) {
 }
 
 void PhoneBook::saveDataToFile(PhoneBook* array, int size) {
+    if (!array) {
+        cout << "NULL" << endl;
+        return;
+    }
     ofstream outFile("data.txt");
 
     if (!outFile) {
